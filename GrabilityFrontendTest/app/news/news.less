@@ -1,0 +1,121 @@
+@screen-lg-min: 1200px;
+@screen-md-min: 992px;
+@screen-sm-min: 768px;
+
+@background-color: #394C5F;
+@header-color: #ff6654;
+@new-color: white;
+@line-height: 1.33em;
+@standard-separation: 1em;
+
+body {
+    background-color: @background-color;
+
+    header {
+        background-color: @header-color;
+
+        .btn-no-color {
+            background-color: inherit;
+        }
+    }
+
+    article {
+        p {
+            padding-right: @standard-separation;
+            text-align: justify;
+
+            @media (max-width: @screen-sm-min) {
+                font-size: 1em;
+            }
+
+            @media (min-width: @screen-sm-min) {
+                font-size: 1.5em;
+            }
+
+            @media (min-width: @screen-lg-min) {
+                font-size: 2em;
+            }
+        }
+
+        .new-container {
+            .new-title {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                @media (max-width: @screen-sm-min) {
+                    font-size: 1.5em;
+                }
+
+                @media (min-width: @screen-sm-min) {
+                    font-size: 2.5em;
+                }
+
+                @media (min-width: @screen-lg-min) {
+                    font-size: 3em;
+                }
+            }
+
+            .new-preview-container {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                background-color: @new-color;
+                margin: @standard-separation*2 0;
+                padding: @standard-separation 0;
+
+                img {
+                    border-radius: 50%;
+                }
+
+                .new-title {
+                    position: relative;
+                    line-height: @line-height;
+                    height: @line-height * 3;
+                    overflow: hidden;
+                }
+
+                /* fade effect for long titles */
+                .new-title:after {
+                    content: "";
+                    text-align: right;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 70%;
+                    height: @line-height;
+                    background: linear-gradient( to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+                }
+            }
+
+            .new-detail-container {
+                padding: @standard-separation*2 0;
+                background-color: @new-color;
+
+                .new-title {
+                    margin: 0;
+                    text-align: center;
+                }
+            }
+        }
+
+        ul {
+            padding: 0;
+
+            li {
+                display: block;
+            }
+        }
+    }
+
+    .white {
+        background-color: white;
+    }
+
+    .more-button {
+        .line {
+            width: 80px;
+            height: 1em;
+            margin: 1em 1em 1em 1em;
+            border-radius: 5px 5px;
+        }
+    }
+}

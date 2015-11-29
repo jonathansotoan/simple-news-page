@@ -1,0 +1,97 @@
+﻿body {
+  background-color: #394C5F;
+}
+body header {
+  background-color: #ff6654;
+}
+body header .btn-no-color {
+  background-color: inherit;
+}
+body article p {
+  padding-right: 1em;
+  text-align: justify;
+}
+@media (max-width: 768px) {
+  body article p {
+    font-size: 1em;
+  }
+}
+@media (min-width: 768px) {
+  body article p {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1200px) {
+  body article p {
+    font-size: 2em;
+  }
+}
+body article .new-container .new-title {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+@media (max-width: 768px) {
+  body article .new-container .new-title {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 768px) {
+  body article .new-container .new-title {
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 1200px) {
+  body article .new-container .new-title {
+    font-size: 3em;
+  }
+}
+body article .new-container .new-preview-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: white;
+  margin: 2em 0;
+  padding: 1em 0;
+  /* fade effect for long titles */
+}
+body article .new-container .new-preview-container img {
+  border-radius: 50%;
+}
+body article .new-container .new-preview-container .new-title {
+  position: relative;
+  line-height: 1.33em;
+  height: 3.99em;
+  overflow: hidden;
+}
+body article .new-container .new-preview-container .new-title:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.33em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff 50%);
+}
+body article .new-container .new-detail-container {
+  padding: 2em 0;
+  background-color: white;
+}
+body article .new-container .new-detail-container .new-title {
+  margin: 0;
+  text-align: center;
+}
+body article ul {
+  padding: 0;
+}
+body article ul li {
+  display: block;
+}
+body .white {
+  background-color: white;
+}
+body .more-button .line {
+  width: 80px;
+  height: 1em;
+  margin: 1em 1em 1em 1em;
+  border-radius: 5px 5px;
+}
