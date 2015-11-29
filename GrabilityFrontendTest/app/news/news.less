@@ -21,7 +21,7 @@ body {
 
     article {
         p {
-            padding-right: @standard-separation;
+            padding: 0 @standard-separation;
             text-align: justify;
 
             @media (max-width: @screen-sm-min) {
@@ -106,6 +106,13 @@ body {
         }
     }
 
+    .row {
+        &.vertically-centered {
+            display: flex;
+            align-items: center;
+        }
+    }
+
     .white {
         background-color: white;
     }
@@ -113,9 +120,18 @@ body {
     .more-button {
         .line {
             width: 80px;
-            height: 1em;
-            margin: 1em 1em 1em 1em;
+            height: @standard-separation;
+            margin: @standard-separation;
             border-radius: 5px 5px;
         }
     }
+}
+
+
+&.ng-hide-add {
+    animation: 0.5s flipOutX ease;
+}
+
+&.ng-hide-remove {
+    animation: 0.5s flipInX ease;
 }

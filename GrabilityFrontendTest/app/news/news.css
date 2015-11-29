@@ -8,7 +8,7 @@ body header .btn-no-color {
   background-color: inherit;
 }
 body article p {
-  padding-right: 1em;
+  padding: 0 1em;
   text-align: justify;
 }
 @media (max-width: 768px) {
@@ -86,12 +86,22 @@ body article ul {
 body article ul li {
   display: block;
 }
+body .row.vertically-centered {
+  display: flex;
+  align-items: center;
+}
 body .white {
   background-color: white;
 }
 body .more-button .line {
   width: 80px;
   height: 1em;
-  margin: 1em 1em 1em 1em;
+  margin: 1em;
   border-radius: 5px 5px;
+}
+.ng-hide-add {
+  animation: 0.5s flipOutX ease;
+}
+.ng-hide-remove {
+  animation: 0.5s flipInX ease;
 }

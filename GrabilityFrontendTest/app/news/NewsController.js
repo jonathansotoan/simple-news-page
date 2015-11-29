@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GrabilityFrontendTest', [])
+angular.module('GrabilityFrontendTest', ['ngAnimate'])
 
 angular.module('GrabilityFrontendTest').controller('NewsController', ['$http', newsController]);
 
@@ -8,9 +8,13 @@ function newsController($http) {
     var self = this;
     var areNewsEnabled = true;
 
-    $http.get('app/news/news_mock.json').success(function (news) {
-        self.news = news;
-    });
+    self.newsSource = 'app/news/news_mock.json';
+
+    self.refreshNews = function () {
+        $http.get(self.newsSource).success(function (news) {
+            self.news = news;
+        });
+    };
 
     self.toggleNews = function () {
         areNewsEnabled = !areNewsEnabled;
@@ -33,4 +37,6 @@ function newsController($http) {
     self.isNewOpen = function (targetNew) {
         return targetNew.isOpen$;
     };
+
+    self.refreshNews();
 }
