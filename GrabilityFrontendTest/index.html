@@ -34,6 +34,8 @@
             </button>
         </header>
 
+        <div us-spinner spinner-key="loading-news-spinner"></div>
+
         <article>
             <ul ng-show="newsCtrl.areNewsEnabled()">
                 <li ng-repeat="new in newsCtrl.news"
@@ -63,7 +65,11 @@
 
         <script src="Scripts/angular.min.js"></script>
         <script src="Scripts/angular-animate.min.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/app.conf.js"></script>
         <script src="app/news/NewsController.js"></script>
         <script src="app/news/gbtShowDirective.js"></script>
+        <script src="Scripts/spin.min.js"></script>
+        <script src="Scripts/angular-spinner.min.js"></script>
     </body>
 </html>

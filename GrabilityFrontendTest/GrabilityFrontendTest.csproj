@@ -66,6 +66,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.conf.js" />
+    <Content Include="app\app.js" />
     <Content Include="app\news\gbtShowDirective.js" />
     <Content Include="app\news\news.min.css">
       <DependentUpon>news.css</DependentUpon>
@@ -94,10 +96,13 @@
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-spinner.js" />
+    <Content Include="Scripts\angular-spinner.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-spinner.min.js.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -115,6 +120,8 @@
     <Content Include="app\news\news.css" />
     <Content Include="app\news\NewsController.js" />
     <Content Include="index.html" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\spin.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

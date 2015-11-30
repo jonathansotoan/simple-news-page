@@ -1,28 +1,43 @@
 'use strict';
 
-angular.module('GrabilityFrontendTest', ['ngAnimate'])
-
 angular.module('GrabilityFrontendTest')
-    .controller('NewsController', ['$http', '$scope', newsController]);
+    .controller('NewsController', [
+        '$http',
+        'usSpinnerService',
+        newsController
+    ]);
 
-function newsController($http, $scope) {
+function newsController($http, usSpinnerService) {
     var self = this;
-    var areNewsEnabled = true;
+    var areNewsEnabled = false;
+    var lastLoadedNews = '';
 
     self.newsSource = 'app/news/news_mock.json';
 
     self.refreshNews = function () {
+        usSpinnerService.spin('loading-news-spinner');
+        lastLoadedNews = self.newsSource;
+
         $http.get(self.newsSource).success(function (news) {
             self.news = news;
 
             self.news.forEach(function (newItem) {
                 newItem.widthClass = 'col-md-6';
             });
+
+            usSpinnerService.stop('loading-news-spinner');
+            areNewsEnabled = true;
         });
     };
 
     self.toggleNews = function () {
-        areNewsEnabled = !areNewsEnabled;
+        if (areNewsEnabled) {
+            areNewsEnabled = false;
+        } else if (lastLoadedNews !== self.newsSource) {
+            self.refreshNews();
+        } else {
+            areNewsEnabled = true;
+        }
     };
 
     self.areNewsEnabled = function () {
@@ -60,6 +75,4 @@ function newsController($http, $scope) {
         targetNew.widthClass = 'col-md-6';
         targetNew.isOpen$ = false;
     };
-
-    self.refreshNews();
 }
