@@ -20,27 +20,24 @@
                 <div class="white line"></div>
             </button>
 
-            <!--<div class="form-group">-->
-                <label class="sr-only" for="news-source">
-                    URL para obtener noticias
-                </label>
-                <div class="col-xs-4 col-sm-offset-0 col-sm-5">
-                    <input id="news-source" type="text" maxlength="2083"
-                           ng-model="newsCtrl.newsSource" class="form-control"
-                           placeholder="Escribe la URL para obtener noticias" />
-                </div>
-                <button class="btn btn-primary col-xs-3 col-sm-offset-0 col-sm-2 col-md-1"
-                        ng-click="newsCtrl.refreshNews()">
-                    Actualizar
-                </button>
-            <!--</div>-->
+            <label class="sr-only" for="news-source">
+                URL para obtener noticias
+            </label>
+            <div class="col-xs-4 col-sm-offset-0 col-sm-5">
+                <input id="news-source" type="text" maxlength="2083"
+                        ng-model="newsCtrl.newsSource" class="form-control"
+                        placeholder="Escribe la URL para obtener noticias" />
+            </div>
+            <button class="btn btn-primary col-xs-3 col-sm-offset-0 col-sm-2 col-md-1"
+                    ng-click="newsCtrl.refreshNews()">
+                Actualizar
+            </button>
         </header>
 
         <article>
             <ul ng-show="newsCtrl.areNewsEnabled()">
                 <li ng-repeat="new in newsCtrl.news"
-                    ng-class="{'col-md-12': newsCtrl.isNewOpen(new),
-                        'col-md-6': !newsCtrl.isNewOpen(new)}">
+                    ng-class="new.widthClass">
                     <div class="new-container">
                         <div class="new-preview-container row"
                              ng-click="newsCtrl.toggleNew(new)">
@@ -49,7 +46,9 @@
                             </h1>
                         </div>
                         <div class="new-detail-container row"
-                             ng-show="newsCtrl.isNewOpen(new)">
+                             gbt-show="newsCtrl.isNewVirtuallyOpen(new)"
+                             after-show="newsCtrl.onOpeningComplete(new)"
+                             after-hide="newsCtrl.onClosingComplete(new)">
                             <img ng-src="{{new.image}}" class="col-xs-4" />
                             <div class="col-xs-8">
                                 <h1 class="new-title" ng-bind="new.title"></h1>
@@ -65,5 +64,6 @@
         <script src="Scripts/angular.min.js"></script>
         <script src="Scripts/angular-animate.min.js"></script>
         <script src="app/news/NewsController.js"></script>
+        <script src="app/news/gbtShowDirective.js"></script>
     </body>
 </html>

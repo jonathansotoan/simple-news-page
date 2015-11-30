@@ -86,6 +86,18 @@ body article ul {
 body article ul li {
   display: block;
 }
+body article ul li.col-md-6-remove {
+  animation: 0.5s flipInX ease;
+}
+body article ul li.col-md-6-add {
+  animation: 0.5s lightSpeedIn ease;
+}
+body article ul.ng-hide-add {
+  animation: 0.5s flipOutX ease;
+}
+body article .ng-hide-remove {
+  animation: 0.5s flipInX ease;
+}
 body .row.vertically-centered {
   display: flex;
   align-items: center;
@@ -98,10 +110,4 @@ body .more-button .line {
   height: 1em;
   margin: 1em;
   border-radius: 5px 5px;
-}
-.ng-hide-add {
-  animation: 0.5s flipOutX ease;
-}
-.ng-hide-remove {
-  animation: 0.5s flipInX ease;
 }

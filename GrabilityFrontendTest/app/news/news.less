@@ -102,7 +102,23 @@ body {
 
             li {
                 display: block;
+
+                &.col-md-6-remove {
+                    animation: 0.5s flipInX ease;
+                }
+
+                &.col-md-6-add {
+                    animation: 0.5s lightSpeedIn ease;
+                }
             }
+
+            &.ng-hide-add {
+                animation: 0.5s flipOutX ease;
+            }
+        }
+        
+        .ng-hide-remove {
+            animation: 0.5s flipInX ease;
         }
     }
 
@@ -125,13 +141,4 @@ body {
             border-radius: 5px 5px;
         }
     }
-}
-
-
-&.ng-hide-add {
-    animation: 0.5s flipOutX ease;
-}
-
-&.ng-hide-remove {
-    animation: 0.5s flipInX ease;
 }
