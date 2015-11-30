@@ -22,7 +22,7 @@ function newsController($http, usSpinnerService) {
             self.news = news;
 
             self.news.forEach(function (newItem) {
-                newItem.widthClass = 'col-md-6';
+                newItem.canBeSmall$ = true;
             });
 
             usSpinnerService.stop('loading-news-spinner');
@@ -48,10 +48,10 @@ function newsController($http, usSpinnerService) {
         if (!targetNew.isVirtuallyOpen$) {
             self.news.forEach(function (newItem) {
                 newItem.isVirtuallyOpen$ = false;
-                newItem.widthClass = 'col-md-6';
+                newItem.canBeSmall$ = true;
             });
 
-            targetNew.widthClass = 'col-md-12';
+            targetNew.canBeSmall$ = false;
         }
 
         targetNew.isVirtuallyOpen$ = !targetNew.isVirtuallyOpen$;
@@ -72,7 +72,7 @@ function newsController($http, usSpinnerService) {
     };
 
     self.onClosingComplete = function (targetNew) {
-        targetNew.widthClass = 'col-md-6';
+        targetNew.canBeSmall$ = true;
         targetNew.isOpen$ = false;
     };
 }

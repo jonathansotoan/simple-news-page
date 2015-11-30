@@ -28,7 +28,8 @@
                         ng-model="newsCtrl.newsSource" class="form-control"
                         placeholder="Escribe la URL para obtener noticias" />
             </div>
-            <button class="btn btn-primary col-xs-3 col-sm-offset-0 col-sm-2 col-md-1"
+            <button class="btn btn-primary col-xs-3
+                        col-sm-offset-0 col-sm-2 col-md-1"
                     ng-click="newsCtrl.refreshNews()">
                 Actualizar
             </button>
@@ -39,7 +40,8 @@
         <article>
             <ul ng-show="newsCtrl.areNewsEnabled()">
                 <li ng-repeat="new in newsCtrl.news"
-                    ng-class="new.widthClass">
+                    ng-class="{'col-md-6': new.canBeSmall$,
+                        'col-md-12': !new.canBeSmall$}">
                     <div class="new-container">
                         <div class="new-preview-container row"
                              ng-click="newsCtrl.toggleNew(new)">
